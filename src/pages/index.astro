@@ -1,18 +1,29 @@
 ---
-// server only
+import MainLayout from "../layouts/MainLayout.astro";
+//server only
 const name = "Alison";
+const title = "Home page";
+
+const currentDate = new Date();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>{name}</h1>
-	</body>
-</html>
+<MainLayout title= "Home page">
+	<h1>{name}</h1>
+	<p>Fecha actual: {currentDate.toLocaleDateString()}</p>
+	<p id="current-time">Momento actual real:</p>
+	<footer>Año 2026</footer>
+
+	<script>
+    //Client Only
+	const footer = document.querySelector('footer') as HTMLElement;
+	const currentTimeParagraph = document.querySelector('#current-time') as HTMLParagraphElement;
+
+
+    const currentYear = new Date().getFullYear();
+
+    footer.innerText = `año: ${currentYear}`;
+    currentTimeParagraph.innerText = `momento actual real :${new Date().toLocaleTimeString()}`;
+	</script>
+</MainLayout>
+	
+
