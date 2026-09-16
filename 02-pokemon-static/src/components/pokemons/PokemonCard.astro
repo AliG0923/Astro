@@ -18,10 +18,11 @@ class:list= {[`rounded  flex flex-col justify-center items-center p-2`,
 },
 ]} >
     <img 
+    transition:name={`${PokemonName}-image`}
     class:list={[
         {
             'w-26 h-26': isBig,
-            'w-16 h-16': !isBig,
+            'w-22 h-22': !isBig,
         },
     ]}
     src={imgSrc} alt={PokemonName}/>
