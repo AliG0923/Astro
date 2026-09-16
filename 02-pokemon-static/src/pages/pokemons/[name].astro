@@ -1,42 +1,42 @@
 ---
 import type { GetStaticPaths } from "astro";
-import MainLayout from '../../layouts/MainLayout.astro';
+import MainLayout from "../../layouts/MainLayout.astro";
 import PokemonCard from "../../components/pokemons/PokemonCard.astro";
-
-
 export const getStaticPaths = (() => {
     
     return [
-        { params:{ name:'bulbasaur'},
-         props: {name2: 'bulbasaur', url: "https://pokeapi.co/api/v2/pokemon/1/"} },
-        { params: { name:'charmander'}, props: {name3: 'charmander', url: "https://pokeapi.co/api/v2/pokemon/4/"} },
-        
+        { params: {name:'bulbasaur'}
+        , props: {name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/1/' }
+    } ,
+
+        { params: {name:'charmander'},
+         props: {name: 'bulbasaur', url: 'https://pokeapi.co/api/v2/pokemon/4/' }
+    },
+     
     ];
 }) satisfies GetStaticPaths;
 
-const { name } = Astro.params;
-const { url } = Astro.props;
+const {name} = Astro.params; 
+const {url} = Astro.props;
 
 const id = url.split('/').at(-2);
-const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${ id }.ogg`
+const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/latest/${id}.ogg`
 ---
-<MainLayout title="Algún pókemon">
 
-    <section class="mt-10 mx-10 flex flex-col justify-center items-center">
+<MainLayout title="algun pokemon">
+<section class="mt-10 mx-10 flex flex-col justify-center items-center">
+    <div>
+        <a href="/">regresar</a>
+        <h1 class="text-5xl capitalize">{name}</h1>
+    </div>
 
-        <div>
-            <a href="/">Regresar</a>
-            <h1 class="text-5xl capitalize">{name}</h1>
-        
-        </div>
-        <PokemonCard name={name} url={url} />
-        <audio controls class="mt-5">
-            <source src={audioSrc} type="audio/ogg" />
-            Your browser does not support the audio element.
-        </audio>
-        
-    </section>
-    
+    <PokemonCard  name= {name}url= {url} />
+
+    <audio controls class="mt-5">
+        <source src={audioSrc} type="audio/ogg" />
+        you browser does not support the audio element.
+    </audio>
+</section>
 </MainLayout>
 
 <style>
@@ -44,4 +44,5 @@ const audioSrc = `https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pok
     a {
         @apply hover:underline text-blue-500;
     }
-</style>
+    
+</style> 
