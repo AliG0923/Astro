@@ -16,6 +16,7 @@ export const getStaticPaths = (async({paginate}) => {
 
 const title ='Pokemon Static | Home';
 const { page }  = Astro.props;
+console.log("🚀 ~ page:", page)
 
 import PokemonCard from '../../components/pokemons/PokemonCard.astro';
 
@@ -39,13 +40,33 @@ import PokemonCard from '../../components/pokemons/PokemonCard.astro';
 </section>
 
 <section
-class="flex mt-10 gap-4 items-center w-full"
->
-<a  class="btn" href={page.url.prev} >Anteriores  </a>
-<a  class="btn" href={page.url.next} >Siguientes </a>
+class="flex mt-10 gap-4 items-center w-full">
+
+<!-- {
+	page.url.prev && (
+		<a  class="btn" href={page.url.prev} >Anteriores  </a>
+	)
+} -->
+
+
+<a  class:list={[
+	'btn',
+	{
+		disabled: !page.url.prev,
+	},
+]}
+href={page.url.prev} >Anteriores  </a>
+
+<a    class:list={[
+	'btn',
+	{
+		disabled: !page.url.next,
+	},
+]} 
+href={page.url.next} >Siguientes </a>
 
 <div class="flex flex-1"></div>
-<span>Pagina 1</span>
+<span class="text-xl font-bold">Pagina {page.currentPage}</span>
 
 </section>
 </MainLayout>
