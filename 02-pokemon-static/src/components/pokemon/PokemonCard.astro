@@ -10,8 +10,10 @@ const id = url.split('/').at(-2);
 const imgSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${ id }.png`;
 ---
 <!-- class= {`rounded  flex flex-col justify-center items-center p-2 ${!isBig && 'border'}`} > -->
+ <!-- href={`/pokemons/${PokemonName}`} -->
 <a
-href={`/pokemons/${PokemonName}`}
+
+href={`/pokemon/${PokemonName}`}
 class:list= {[`rounded  flex flex-col justify-center items-center p-2`,
 {
     border: !isBig,

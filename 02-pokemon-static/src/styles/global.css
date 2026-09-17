@@ -1,1 +1,5 @@
 @import "tailwindcss";
+img.w-26 {
+    width: 300px !important;
+    height: 300px !important;
+}
