@@ -3,6 +3,7 @@ import type { GetStaticPaths } from "astro";
 import MainLayout from "@layouts/MainLayout.astro";
 import  PokemonCard  from "@components/pokemon/PokemonCard.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
+import Title from "@components/shared/Title.astro";
 
 
 
@@ -47,8 +48,11 @@ image={imgSrc}
 >
 <section class="mt-10 mx-10 flex flex-col justify-center items-center">
     <div>
-        <a href="/">regresar</a>
-        <h1 class="text-5xl capitalize">{name}</h1>
+        <button
+        onclick="history.back()"
+        class="text-blue-500">Regresar</button>
+        <Title>{name}</Title>
+        
     </div>
 
     <PokemonCard  name= {name}url= {url} isBig={true} />
