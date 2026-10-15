@@ -48,11 +48,11 @@ Astro.props;
 		 
 		 
 	</head>
-	<body class="bg-slate-800 text-slate-100">
+	<body class="bg-slate-800 text-slate-100 flex flex-col min-h-screen">
 		<Navbar />
 		<NavBar />
-		<main class="mt-10 mx-auto max-w-3xl px-4">
-			 <slot />
+		<main class="mt-10 mx-auto grow w-full max-w-4xl px-4">
+				 <slot />
 		</main>
 	</body>
 </html>

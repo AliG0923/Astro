@@ -112,9 +112,15 @@ image={imgSrc}
 
     const name = btnFavorite.dataset.name as string;
     const id = btnFavorite.dataset.id as string;
+    const isFavorite = favoritesPokemons.some((fav) => fav.name === name);
 
     const heartOutline = btnFavorite.querySelector('[data-outline]') as HTMLElement;
     const heartFull = btnFavorite.querySelector('[data-full]') as HTMLElement;
+
+    if (isFavorite){
+        heartOutline.classList.add('hidden');
+        heartFull.classList.remove('hidden');
+    }
 
     const toggleFavorite = () => {
         const isFavorite = favoritesPokemons.some((fav) => fav.name === name);

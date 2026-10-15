@@ -27,7 +27,7 @@ import Title from "@components/shared/Title.astro";
 	<Title> Listado Paginado</Title>
 <section 
 	aria-label="Listado de Pokemons"
-	class=" grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 gap-4 mt-5" 
+	class=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-4 mt-5" 
 		>
 		{ page.data.map(({ name, url }) => (
 		<PokemonCard
