@@ -5,6 +5,7 @@ import  PokemonCard  from "@components/pokemon/PokemonCard.astro";
 import type { PokemonListResponse } from "@interfaces/pokemon-list.response";
 import Title from "@components/shared/Title.astro";
 import {Icon} from 'astro-icon/components'
+import type { FavoritePokemon } from "@interfaces/favorite-pokemon";
 
 export const getStaticPaths = (async() => {
 
@@ -72,10 +73,11 @@ image={imgSrc}
 </MainLayout>
 
 <script>
-    interface FavoritePokemon {
-        name: string;
-        id:number;
-    }
+    import type {FavoritePokemon} from "@interfaces/favorite-pokemon";
+    // interface FavoritePokemon {
+    //     name: string;
+    //     id:number;
+    // }
 
     // document.addEventListener('astro:before-preparation',() =>{
     //     console.log('astro:before-preparation');
@@ -129,7 +131,7 @@ image={imgSrc}
             favoritesPokemons = favoritesPokemons.filter((fav) => fav.name !== name);
         }else{
             favoritesPokemons.push({
-                id: +id,
+                id: id,
                 name: name,
             });
         }
