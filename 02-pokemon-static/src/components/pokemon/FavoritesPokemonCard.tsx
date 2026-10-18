@@ -33,6 +33,7 @@ export const FavoritePokemonCard: Component <Props> = ({pokemon}) => {
             alt= {pokemon.name}
             width="96"
             height= "96"
+            style= {`view-transition-name:${pokemon.name}-image`}
             />
 
            <p class='capitalize' > #{pokemon.id} {pokemon.name}</p>
